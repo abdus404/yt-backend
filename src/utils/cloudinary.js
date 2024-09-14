@@ -33,7 +33,7 @@ const uploadOnCloudinary = async (localFilePath) => {
     );
 
     // Delete the local file asynchronously
-    await fs.unlink(localFilePath);
+    // await fs.unlink(localFilePath);
 
     return response;
   } catch (error) {
