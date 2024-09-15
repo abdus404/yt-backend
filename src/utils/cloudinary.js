@@ -27,13 +27,13 @@ const uploadOnCloudinary = async (localFilePath) => {
     });
 
     // Log the secure URL of the uploaded file
-    console.log(
-      "File uploaded successfully to Cloudinary: ",
-      response.secure_url
-    );
+    // console.log(
+    //   "File uploaded successfully to Cloudinary: ",
+    //   response.secure_url
+    // );
 
     // Delete the local file asynchronously
-    // await fs.unlink(localFilePath);
+    await fs.unlink(localFilePath);
 
     return response;
   } catch (error) {

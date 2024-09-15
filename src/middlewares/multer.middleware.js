@@ -1,6 +1,4 @@
 import multer from "multer";
-import path from "path";
-import { v4 as uuidv4 } from "uuid";
 
 // Set storage engine with dynamic file name
 const storage = multer.diskStorage({
@@ -8,8 +6,8 @@ const storage = multer.diskStorage({
     cb(null, "./public/temp"); // Temp storage
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = uuidv4() + path.extname(file.originalname); // Generate unique file name with original extension
-    cb(null, uniqueSuffix);
+    const uniquePrefix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniquePrefix + "-" + file.originalname);
   },
 });
 
